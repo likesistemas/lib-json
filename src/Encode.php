@@ -19,7 +19,7 @@ class Encode {
 	public static function encode($array) {
 		$json = json_encode($array);
 
-		if($json === false) {
+		if($json === false || json_last_error() !== JSON_ERROR_NONE) {
 			throw new JsonException($array);
 		}
 

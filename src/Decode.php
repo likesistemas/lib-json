@@ -18,7 +18,7 @@ class Decode {
 	public static function decode($json) {
 		$json = json_decode($json,true);
 
-		if($json === false) {
+		if($json === false || json_last_error() !== JSON_ERROR_NONE) {
 			throw new JsonException($json);
 		}
 
